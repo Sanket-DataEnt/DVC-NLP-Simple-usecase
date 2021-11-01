@@ -5,6 +5,7 @@ from tqdm import tqdm
 from src.utils.common import read_yaml, create_directories, get_df
 import logging
 import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 STAGE = "Two"
 
@@ -39,7 +40,7 @@ def main(config_path, params_path):
 
     train_words = np.array(df_train.text.str.lower().values.astype("U"))
 
-    
+
 
 
 if __name__ == '__main__':
