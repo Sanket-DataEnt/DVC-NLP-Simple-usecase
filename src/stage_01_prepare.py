@@ -31,9 +31,23 @@ def main(config_path, params_path):
 
     random.seed(seed)
 
+    # creating directories to store processed data
     artifacts = config["artifacts"]
     prepared_data_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"],artifacts["PREPARED_DATA"])
     create_directories([prepared_data_dir_path])
+
+    # creating path for TSV files
+    train_data_path = os.path.join(prepared_data_dir_path, artifacts["TRAIN_DATA"])
+    test_data_path = os.path.join(prepared_data_dir_path, artifacts["TEST_DATA"])
+    
+    # creating TSV files
+    encoding = "utf8"
+    with open(input_data, encoding=encoding) as fd_in:
+        with open(train_data_path, "w", encoding=encoding) as fd_out_train:
+            with open(test_data_path, "w", encoding=encoding) as fd_out_test:
+                pass
+                # process_post(fd_in, fd_out_train, fd_out_test, "<python>", split)
+
 
 
 
