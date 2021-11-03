@@ -24,7 +24,7 @@ def main(config_path, params_path):
     params = read_yaml(params_path)
 
     source_data = config["source_data"]
-    # creating file path
+    # creating input file path
     input_data = os.path.join(source_data["data_dir"], source_data["data_file"])
 
     split = params["prepare"]["split"]
