@@ -6,7 +6,7 @@ from src.utils.common import read_yaml, create_directories, get_df
 import logging
 from src.utils.featurize import save_matrix
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
 
 STAGE = "Two"
 
@@ -52,6 +52,11 @@ def main(config_path, params_path):
     tfidf.fit(train_words_binary_matrix)
     train_words_tfidf_matrix = tfidf.transform(train_words_binary_matrix)
     save_matrix(df_train, train_words_tfidf_matrix, featurized_train_data_path)
+
+    # Another way of creating tfidf matrix without using CountVectorizer
+    # tfidf_vectorizer = TfidfVectorizer(stop_words="english", max_features=max_features, ngram_range = (1, ngrams), use_idf=True)
+    # train_words_tfidf_matrix = tfidf_vectorizer.fit_transform(train_words)
+
 
 
 
