@@ -39,7 +39,7 @@ def main(config_path, params_path):
 
     df_train = get_df(train_data_path)
 
-    train_words = np.array(df_train.text.str.lower().values.astype("U1000")) ## Use U1000 instead of U to take only 1000 words for experiment purpose.
+    train_words = np.array(df_train.text.str.lower().values.astype("U")) ## Use U1000 instead of U to take only 1000 words for experiment purpose.
 
     bag_of_words = CountVectorizer(
         stop_words = "english", max_features = max_features, ngram_range = (1, ngrams)
